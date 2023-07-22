@@ -11,4 +11,12 @@ describe('getIndicesOfTheSumTwoNumbers', () => {
 
 		expect(result).toEqual(output);
 	});
+
+	test('should not use the same number twice', () => {
+		const inputs = { nums: [-1, 0, 1, 1, 3, 5, -4, 6], target: 4 };
+		const output = [2, 4];
+		const result = getIndicesOfTheSumTwoNumbers(inputs.nums, inputs.target);
+
+		expect(result).toEqual(output);
+	});
 });
