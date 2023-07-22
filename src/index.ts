@@ -12,6 +12,10 @@ export const getIndicesOfTheSumTwoNumbers = (nums: number[], target: number): nu
 			return (indicesResult = [numIndex[complement], i]);
 		}
 
+		if (numIndex.hasOwnProperty(currentNumber)) {
+			continue;
+		}
+
 		numIndex[currentNumber] = i;
 	}
 	return indicesResult;
