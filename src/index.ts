@@ -1,18 +1,18 @@
 export const getIndicesOfTheSumTwoNumbers = (nums: number[], target: number): number[] | undefined => {
-	const indexMap: Map<number, number> = new Map();
+	const indexSet: Set<number> = new Set();
 	let indicesResult: number[] = [];
 
 	for (let i = 0; i < nums.length; i++) {
 		const currentNumber = nums[i];
 		const complement = target - currentNumber;
 
-		if (indexMap.has(complement)) {
-			const complementIndex = indexMap.get(complement)!;
+		if (indexSet.has(complement)) {
+			const complementIndex = nums.indexOf(complement);
 			return (indicesResult = [complementIndex, i]);
 		}
 
-		if (indexMap.has(currentNumber)) continue;
+		if (indexSet.has(currentNumber)) continue;
 
-		indexMap.set(currentNumber, i);
+		indexSet.add(currentNumber);
 	}
 };
